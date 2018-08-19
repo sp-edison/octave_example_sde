@@ -27,7 +27,7 @@ lines = textscan(fid, "%s", 'delimiter',';\n');
 
 i=1;
 while i <= length(lines{1})
-    line = strsplit(lines{1}{i}, ' = ' );
+    line = strsplit(lines{1}{i}, ' ' );
     i++;
     switch line{1}
     case {"INT1"}
@@ -38,9 +38,9 @@ while i <= length(lines{1})
          list1 = line{2} ;
     case{"VECTOR1"}
         vector_tmp = strsplit(line{2}, " ");
-        vector1 = { str2num(vector_tmp{2}),
-                    str2num(vector_tmp{3}),
-                    str2num(vector_tmp{4}) } ;
+        vector1 = { str2num(vector_tmp{1}),
+                    str2num(vector_tmp{2}),
+                    str2num(vector_tmp{3}) } ;
     endswitch
 endwhile
 
